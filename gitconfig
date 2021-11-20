@@ -1,0 +1,9 @@
+[user]
+    name=sinkinben
+    email=sinkinben@outlook.com
+
+# https://gist.github.com/evantoli/f8c23a37eb3558ab8765
+[http]
+    proxy=127.0.0.1:PORT
+[https]
+    proxy=127.0.0.1:PORT
