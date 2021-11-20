@@ -8,3 +8,19 @@ alias gl='git log'
 alias grep='grep --color'
 alias py='python3'
 
+
+# set proxy to access magic websites in terminal
+set_proxy()
+{
+    export http_proxy=127.0.0.1:1234;
+    export https_proxy=127.0.0.1:1234;
+}
+
+# unset proxy
+unset_proxy()
+{
+    unset https_proxy;
+    unset http_proxy;
+}
+
+
