@@ -5,6 +5,8 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 # colors
 autoload -U colors && colors
 PROMPT="%{$fg[blue]%}%B%n%{$reset_color%} %{$fg[green]%}%B%1~ %{$reset_color%}%% "
+export CLICOLOR=1
+export LSCOLORS=ExGxFxdaCxDaDahbadeche
 
 # customed alias
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
@@ -18,3 +20,9 @@ alias gl='git log'
 alias grep='grep --color'
 alias py='python3'
 
+
+function runcpp()
+{
+    if [ -f ./a.out ]; then rm a.out; fi;
+    clang++ $1 -o a.out -std=c++17; ./a.out
+}
