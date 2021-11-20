@@ -18,3 +18,16 @@ set autoindent
 " replace TAB with spaces
 set tabstop=4
 set expandtab
+
+" search results highlight
+set hlsearch
+
+" wrap line automatically
+set wrap
+
+
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
