@@ -26,3 +26,7 @@ function runcpp()
     if [ -f ./a.out ]; then rm a.out; fi;
     clang++ $1 -o a.out -std=c++17; ./a.out
 }
+
+
+# find all files by filename pattern, case insensitive
+function fall() { find . -iname "*$1*"; }
