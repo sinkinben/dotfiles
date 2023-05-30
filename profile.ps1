@@ -1,6 +1,13 @@
-Import-Module PSColor  # Need to run Install-Module PSColor in PowerShell with Admin.
+# cat = Get-Content -Encoding UTF8
+Remove-Item alias:cat;
+function cat ($file) {
+    Get-Content -Encoding UTF8 $file
+}
 
+# Need to run Install-Module PSColor in PowerShell with Admin.
+Import-Module PSColor
 
+# Display git branch name in prompt
 function Write-BranchName () {
     try {
         $branch = git rev-parse --abbrev-ref HEAD
@@ -28,12 +35,12 @@ function prompt {
     Write-Host "`n$base" -NoNewline
 
     if (Test-Path .git) {
-        Write-Host $path -NoNewline -ForegroundColor "green"
+        Write-Host $path -NoNewline # -ForegroundColor "green"
         Write-BranchName
     }
     else {
         # we're not in a repo so don't bother displaying branch name/sha
-        Write-Host $path -NoNewline -ForegroundColor "green"
+        Write-Host $path -NoNewline # -ForegroundColor "green"
     }
 
     return $userPrompt
