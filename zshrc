@@ -29,4 +29,4 @@ function runcpp()
 
 
 # find all files by filename pattern, case insensitive
-function fall() { find . -iname "*$1*"; }
+function fall() { find . -iname "$1"; }
