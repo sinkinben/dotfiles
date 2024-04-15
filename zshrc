@@ -2,9 +2,14 @@
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
+# display git branch name on prompt
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
+
 # colors
 autoload -U colors && colors
-PROMPT="%{$fg[blue]%}%B%n%{$reset_color%} %{$fg[green]%}%B%1~ %{$reset_color%}%% "
+PROMPT="%{$fg[blue]%}%B%n%{$reset_color%} %{$fg[green]%}%B%1~%{$reset_color%} %{$fg[cyan]%}%B$(parse_git_branch)%{$reset_color%} %% "
 export CLICOLOR=1
 export LSCOLORS=ExGxFxdaCxDaDahbadeche
 
